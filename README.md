@@ -83,6 +83,29 @@
 -- Desfazer um commit específico (descartando mudanças)
 -- git reset --hard <id-do-commit>: desfaz o commit especificado e descarta todas as mudanças
 
+Restorar para o último commit
+-- git restore . --> restaura tudo
+-- git checkout -- . --> mesma coisa
+
+restaura pra o último commit.
+git restore --staged app.js
+
+Tags: Pontos específicos no código
+git tag <nome> ou <id> ponteiro para algum commit específico.
+git push origin --<nome da tag> ou sem especificar
+git tag -d <nome> -- remove a tag
+git tag -a <nome> -m <mensagem>
+git tag -v <nome> --> mostra as informações
+
+Releases -- nome da tag
+
+Reaproveitando commits de uma branch em outros cenários
+faço o git logo com o nome da branch específica
+git cherry-pick <hash do commit>
+
+Achar o culpado, não acho que isso é uma boa ideia:
+git blame <arquivo>
+
 -- Comandos do gitgub acima do básico
 -- git log: mostra os commuts e informações
 -- git log --oneline -- mostra informações resumidas
