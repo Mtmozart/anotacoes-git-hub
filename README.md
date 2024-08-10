@@ -3,6 +3,8 @@
 <h2>🔖 Sobre</h2>
 <p>Projeto utilizado nos cursos de lógica de programação da Alura.</p>
 
+Aqui está o conteúdo formatado com anotações para melhor legibilidade:
+
 ## 🚀 Tecnologias
 
 <div>
@@ -11,105 +13,116 @@
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 </div>
 
-# Criado pela alura
+# Criado pela Alura
 
--- Configurar nome de usuário e email
--- git config --global user.name "Seu Nome": define o nome de usuário global
--- git config --global user.email "seu.email@example.com": define o email global
+## Configurações Básicas
 
--- Criar um novo repositório
--- git init: inicializa um novo repositório Git na pasta atual
+- **Configurar nome de usuário e email:**
+  - `git config --global user.name "Seu Nome"`: define o nome de usuário global.
+  - `git config --global user.email "seu.email@example.com"`: define o email global.
 
--- Clonar um repositório existente
--- git clone <url-do-repositorio>: faz uma cópia de um repositório remoto para a sua máquina
+## Comandos Básicos de Git
 
--- Verificar o status dos arquivos
--- git status: mostra o status das mudanças no repositório
+- **Criar um novo repositório:**
+  - `git init`: inicializa um novo repositório Git na pasta atual.
 
--- Adicionar arquivos para a área de stage
--- git add <nome-do-arquivo>: adiciona um arquivo específico para a área de stage
--- git add .: adiciona todos os arquivos modificados para a área de stage
+- **Clonar um repositório existente:**
+  - `git clone <url-do-repositorio>`: faz uma cópia de um repositório remoto para a sua máquina.
 
--- Fazer commit das alterações
--- git commit -m "Mensagem descritiva do commit": grava as mudanças adicionadas na área de stage
+- **Verificar o status dos arquivos:**
+  - `git status`: mostra o status das mudanças no repositório.
 
--- Visualizar o histórico de commits
--- git log: exibe o histórico de commits do repositório
+- **Adicionar arquivos para a área de stage:**
+  - `git add <nome-do-arquivo>`: adiciona um arquivo específico para a área de stage.
+  - `git add .`: adiciona todos os arquivos modificados para a área de stage.
 
--- Criar uma nova branch
--- git branch <nome-da-branch>: cria uma nova branch no repositório
--- Observação: Uma branch (ramificação) é uma linha separada de desenvolvimento. Você pode usar branches para trabalhar em diferentes funcionalidades ou correções de bugs de forma isolada.
+- **Fazer commit das alterações:**
+  - `git commit -m "Mensagem descritiva do commit"`: grava as mudanças adicionadas na área de stage.
 
--- Mudar para outra branch
--- git checkout <nome-da-branch>: muda para a branch especificada
+- **Visualizar o histórico de commits:**
+  - `git log`: exibe o histórico de commits do repositório.
 
--- Criar e mudar para uma nova branch
--- git checkout -b <nome-da-branch>: cria uma nova branch e muda para ela imediatamente
+## Trabalhando com Branches
 
--- Mesclar uma branch com a branch atual
--- git merge <nome-da-branch>: mescla a branch especificada com a branch atual
--- Observação: O merge (mesclagem) combina mudanças de diferentes branches. Isso é útil para integrar funcionalidades ou correções de bugs desenvolvidas separadamente.
+- **Criar uma nova branch:**
+  - `git branch <nome-da-branch>`: cria uma nova branch no repositório.
 
--- Remover uma branch local
--- git branch -d <nome-da-branch>: remove a branch especificada localmente
+- **Mudar para outra branch:**
+  - `git checkout <nome-da-branch>`: muda para a branch especificada.
 
--- Enviar uma branch para o repositório remoto
--- git push origin <nome-da-branch>: envia a branch especificada para o repositório remoto
+- **Criar e mudar para uma nova branch:**
+  - `git checkout -b <nome-da-branch>`: cria uma nova branch e muda para ela imediatamente.
 
--- Remover uma branch do repositório remoto
--- git push origin --delete <nome-da-branch>: remove a branch especificada do repositório remoto
+- **Mesclar uma branch com a branch atual:**
+  - `git merge <nome-da-branch>`: mescla a branch especificada com a branch atual.
 
--- Verificar repositórios remotos
--- git remote -v: exibe os repositórios remotos configurados
+- **Remover uma branch local:**
+  - `git branch -d <nome-da-branch>`: remove a branch especificada localmente.
 
--- Adicionar um repositório remoto
--- git remote add origin <url-do-repositorio>: adiciona um novo repositório remoto com o nome "origin"
+## Interagindo com Repositórios Remotos
 
--- Enviar commits para o repositório remoto
--- git push origin <nome-da-branch>: envia os commits da branch especificada para o repositório remoto
+- **Enviar uma branch para o repositório remoto:**
+  - `git push origin <nome-da-branch>`: envia a branch especificada para o repositório remoto.
 
--- Atualizar o repositório local com mudanças do remoto
--- git pull origin <nome-da-branch>: puxa as mudanças da branch especificada no repositório remoto para o repositório local
+- **Remover uma branch do repositório remoto:**
+  - `git push origin --delete <nome-da-branch>`: remove a branch especificada do repositório remoto.
 
--- Reverter mudanças locais
--- git checkout -- <nome-do-arquivo>: desfaz mudanças não comitadas em um arquivo específico
+- **Verificar repositórios remotos:**
+  - `git remote -v`: exibe os repositórios remotos configurados.
 
--- Desfazer um commit específico (mantendo mudanças)
--- git reset --soft <id-do-commit>: desfaz o commit especificado, mantendo as mudanças na área de stage
+- **Adicionar um repositório remoto:**
+  - `git remote add origin <url-do-repositorio>`: adiciona um novo repositório remoto com o nome "origin".
 
--- Desfazer um commit específico (descartando mudanças)
--- git reset --hard <id-do-commit>: desfaz o commit especificado e descarta todas as mudanças
+- **Enviar commits para o repositório remoto:**
+  - `git push origin <nome-da-branch>`: envia os commits da branch especificada para o repositório remoto.
 
-Restorar para o último commit
--- git restore . --> restaura tudo
--- git checkout -- . --> mesma coisa
+- **Atualizar o repositório local com mudanças do remoto:**
+  - `git pull origin <nome-da-branch>`: puxa as mudanças da branch especificada no repositório remoto para o repositório local.
 
-restaura pra o último commit.
-git restore --staged app.js
+## Revertendo e Restaurando Alterações
 
-Tags: Pontos específicos no código
-git tag <nome> ou <id> ponteiro para algum commit específico.
-git push origin --<nome da tag> ou sem especificar
-git tag -d <nome> -- remove a tag
-git tag -a <nome> -m <mensagem>
-git tag -v <nome> --> mostra as informações
+- **Reverter mudanças locais:**
+  - `git checkout -- <nome-do-arquivo>`: desfaz mudanças não comitadas em um arquivo específico.
 
-Releases -- nome da tag
+- **Desfazer um commit específico mantendo as mudanças:**
+  - `git reset --soft <id-do-commit>`: desfaz o commit especificado, mantendo as mudanças na área de stage.
 
-Reaproveitando commits de uma branch em outros cenários
-faço o git logo com o nome da branch específica
-git cherry-pick <hash do commit>
+- **Desfazer um commit específico descartando as mudanças:**
+  - `git reset --hard <id-do-commit>`: desfaz o commit especificado e descarta todas as mudanças.
 
-Achar o culpado, não acho que isso é uma boa ideia:
-git blame <arquivo>
+- **Restaurar para o último commit:**
+  - `git restore .`: restaura tudo.
+  - `git checkout -- .`: mesma coisa.
+  - `git restore --staged app.js`: restaura um arquivo específico da área de stage.
 
--- Comandos do gitgub acima do básico
--- git log: mostra os commuts e informações
--- git log --oneline -- mostra informações resumidas
--- git log -p -- exibe mais informações
--- git log --graph
--- git log --format="%H %an"
+## Trabalhando com Tags
 
--- git diff --> visualiza os estados atuais e o último commit.
+- **Criar e gerenciar tags:**
+  - `git tag <nome>`: cria uma tag.
+  - `git push origin --<nome da tag>`: envia a tag para o repositório remoto.
+  - `git tag -d <nome>`: remove a tag localmente.
+  - `git tag -a <nome> -m <mensagem>`: cria uma tag anotada com uma mensagem.
+  - `git tag -v <nome>`: exibe informações sobre a tag.
 
-git diff commitatingo..commitNovo --> verifica as diferenças
+## Utilizando Commits em Outros Cenários
+
+- **Reaproveitar commits de uma branch:**
+  - `git cherry-pick <hash do commit>`: aplica um commit específico de outra branch na branch atual.
+
+## Comandos Avançados
+
+- **Verificar o autor das alterações (git blame):**
+  - `git blame <arquivo>`: mostra o autor de cada linha de um arquivo, mas pode não ser a melhor prática.
+
+- **Comandos avançados de log:**
+  - `git log`: mostra os commits e informações detalhadas.
+  - `git log --oneline`: mostra informações resumidas.
+  - `git log -p`: exibe mais informações detalhadas.
+  - `git log --graph`: exibe um gráfico dos commits.
+  - `git log --format="%H %an"`: formata a saída do log com hash e autor.
+
+- **Visualizar diferenças entre commits:**
+  - `git diff`: visualiza as diferenças entre o estado atual e o último commit.
+  - `git diff <commitAntigo>..<commitNovo>`: verifica as diferenças entre dois commits específicos.
+
+Essa estrutura com anotações facilita o entendimento e a navegação pelos comandos do Git.
