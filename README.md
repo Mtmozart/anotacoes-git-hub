@@ -259,3 +259,81 @@ Submódulos permitem incluir um repositório Git dentro de outro como um subdire
   ```bash
   git diff <commit-antigo>..<commit-novo>
   ```
+
+### O que é o `git stash`?
+
+É um "armário temporário" onde você guarda alterações que ainda não estão prontas para commit, para poder limpar sua área de trabalho e mudar de branch, por exemplo.
+
+---
+
+### Comandos básicos do `git stash`
+
+* **Guardar as mudanças (stashing):**
+
+  ```bash
+  git stash
+  ```
+
+  Isso guarda suas modificações (modificações em arquivos rastreados e também arquivos removidos) e limpa a working directory para o último commit.
+
+* **Listar as stashes salvas:**
+
+  ```bash
+  git stash list
+  ```
+
+  Mostra todas as alterações guardadas, com nomes tipo `stash@{0}`, `stash@{1}`, etc.
+
+* **Aplicar a stash mais recente (mas mantém ela salva):**
+
+  ```bash
+  git stash apply
+  ```
+
+  Aplica as mudanças guardadas, mas não remove da lista de stashes.
+
+* **Aplicar e remover a stash mais recente:**
+
+  ```bash
+  git stash pop
+  ```
+
+  Aplica as mudanças guardadas e remove essa stash da lista.
+
+* **Guardar uma stash com mensagem:**
+
+  ```bash
+  git stash save "Mensagem explicando a stash"
+  ```
+
+  Ou (a partir do Git 2.13, o `save` está depreciado, pode usar apenas `git stash push`):
+
+  ```bash
+  git stash push -m "Mensagem explicativa"
+  ```
+
+* **Guardar mudanças de arquivos específicos:**
+
+  ```bash
+  git stash push <arquivo1> <arquivo2>
+  ```
+
+* **Remover uma stash específica:**
+
+  ```bash
+  git stash drop stash@{1}
+  ```
+
+* **Limpar todas as stashes:**
+
+  ```bash
+  git stash clear
+  ```
+
+---
+
+### Quando usar o `git stash`?
+
+* Você começou a fazer alterações, mas precisa mudar para outra branch para consertar um bug urgente.
+* Quer experimentar algo sem perder o que já fez até agora.
+* Está com mudanças parciais que ainda não quer commitar.
