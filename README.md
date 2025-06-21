@@ -44,10 +44,14 @@
   ```
 
 - **Fazer commit das alterações:**
-  ```bash
+  ```
   git commit -m "Mensagem descritiva do commit"
   ```
 
+Para renomear (editar a mensagem) do último commit que você acabou de fazer, use:
+```
+git commit --amend -m "Nova mensagem do commit"
+```
 - **Visualizar o histórico de commits:**
   ```bash
   git log
@@ -69,7 +73,14 @@
   ```bash
   git checkout -b <nome-da-branch>
   ```
-
+- **Renomear para uma nova branch:**
+  ```
+    git branch -m novo-nome
+  ```
+Apague a branch antiga no remoto:
+```
+  git push origin --delete nome-antigo
+```
 - **Mesclar uma branch com a branch atual:**
   ```bash
   git merge <nome-da-branch>
@@ -337,3 +348,146 @@ Submódulos permitem incluir um repositório Git dentro de outro como um subdire
 * Você começou a fazer alterações, mas precisa mudar para outra branch para consertar um bug urgente.
 * Quer experimentar algo sem perder o que já fez até agora.
 * Está com mudanças parciais que ainda não quer commitar.
+
+
+Padrões e Boas Práticas para Envio de Commits ao Repositório Remoto (git push)
+1. Enviar para a branch correta
+Use branches específicas para cada finalidade, por exemplo:
+
+main ou master para código estável e deploy.
+
+develop para integração das features em desenvolvimento.
+
+feature/nome-da-feature para novas funcionalidades.
+
+bugfix/nome-do-bug para correções.
+
+hotfix/nome-do-hotfix para correções urgentes na produção.
+
+Sempre envie (git push) para a branch relacionada à tarefa que você está trabalhando.
+
+2. Commits pequenos e atômicos
+Faça commits que representam mudanças específicas e pequenas, para facilitar revisão e rollback.
+
+Evite commits muito grandes ou genéricos.
+
+3. Mensagens de commit claras
+Mensagens no formato:
+
+tipo: descrição breve
+
+descrição detalhada opcional
+Exemplos de tipos: feat (feature), fix (correção), docs, style, refactor, test, chore.
+
+4. Revisão antes do push
+Use git status e git diff para revisar suas mudanças.
+
+Use git log para ver os commits antes de enviar.
+
+5. Sincronizar antes de enviar
+Sempre dê um git pull --rebase para trazer atualizações antes do push, evitando conflitos:
+```
+  git pull --rebase origin sua-branch
+```
+6. Push com upstream
+Para branches novas, defina o upstream na primeira vez que fizer push:
+```
+  git push -u origin nome-da-branch
+```
+# Guia de Branches e Mensagens de Commit — Padrão Git Flow
+
+---
+
+### 1. **Branch principal estável: `main` (ou `master`)**
+
+* **Objetivo:** Código pronto para produção, deploy e releases.
+* **Commit típico:**
+
+  * `"release: versão 1.0.0 pronta para deploy"`
+  * `"hotfix: corrige erro crítico na produção"`
+
+---
+
+### 2. **Branch de integração: `develop`**
+
+* **Objetivo:** Integração e testes das novas funcionalidades antes de ir para produção.
+* **Commit típico:**
+
+  * `"merge feature/login ao develop"`
+  * `"merge bugfix/corrige-login ao develop"`
+
+---
+
+### 3. **Branches de funcionalidades: `feature/nome-da-feature`**
+
+* **Objetivo:** Desenvolvimento de uma funcionalidade nova isolada.
+* **Exemplo de branch:**
+
+  ```
+  feature/login
+  feature/carrinho-compras
+  feature/pagamento-cartao
+  ```
+* **Exemplos de mensagens de commit:**
+
+  * `"feat: adiciona tela de login com autenticação"`
+  * `"feat: implementa carrinho de compras com adição e remoção de itens"`
+  * `"style: ajusta layout da tela de login"`
+
+---
+
+### 4. **Branches de correção de bugs: `bugfix/nome-do-bug`**
+
+* **Objetivo:** Corrigir bugs detectados durante o desenvolvimento ou testes.
+* **Exemplo de branch:**
+
+  ```
+  bugfix/corrige-botao-enviar
+  bugfix/ajusta-validacao-email
+  ```
+* **Exemplos de mensagens de commit:**
+
+  * `"fix: corrige problema no botão enviar formulário"`
+  * `"fix: ajusta validação do campo email para aceitar maiúsculas"`
+
+---
+
+### 5. **Branches de correções urgentes em produção: `hotfix/nome-do-hotfix`**
+
+* **Objetivo:** Corrigir bugs críticos encontrados na produção que precisam de deploy imediato.
+* **Exemplo de branch:**
+
+  ```
+  hotfix/corrige-falha-login
+  hotfix/ajusta-permissao-usuario
+  ```
+* **Exemplos de mensagens de commit:**
+
+  * `"hotfix: corrige falha que bloqueava login de usuários"`
+  * `"hotfix: ajusta permissão para acesso ao painel administrativo"`
+
+---
+
+## Fluxo básico resumido com comandos
+
+```bash
+# Criar uma branch de feature
+git checkout develop
+git checkout -b feature/login
+
+# Trabalhar na feature e fazer commits
+git commit -m "feat: adiciona tela de login com autenticação"
+
+# Quando a feature estiver pronta, voltar para develop e mesclar
+git checkout develop
+git merge feature/login
+
+# Push develop
+git push origin develop
+
+# Quando develop estiver estável, mesclar em main para release
+git checkout main
+git merge develop
+git commit -m "release: versão 1.0.0 pronta para deploy"
+git push origin main
+```
